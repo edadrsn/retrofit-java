@@ -11,6 +11,7 @@ public interface CryptoAPI {
 
     //GET,POST,UPDATE,DELETE
 
+    //GET ile veri çekicez içerisine hangi url'den çekicez onu yazıyoruz
     @GET("atilsamancioglu/K21-JSONDataSet/refs/heads/master/crypto.json")
     //Ne indiricez,hangi metot içinde indiricez onu söyler
     Call<List<CryptoModel>> getData();
