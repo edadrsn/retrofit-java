@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
         //https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/refs/heads/master/crypto.json
 
+        //Model oluşturmak
+
+
+
         
     }
 }
