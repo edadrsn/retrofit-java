@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.retrofitjava.R;
 import com.example.retrofitjava.model.CryptoModel;
@@ -26,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CryptoModel> cryptoModels;
     private String BASE_URL="https://raw.githubusercontent.com/";
     Retrofit retrofit;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         //https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/refs/heads/master/crypto.json
 
 
