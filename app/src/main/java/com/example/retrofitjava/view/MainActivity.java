@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.retrofitjava.R;
 import com.example.retrofitjava.model.CryptoModel;
+import com.example.retrofitjava.service.CryptoAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Retrofit & JSON
-        //Model çekeceğimizi bildirdik,modelin nerden çekileceğini ve ne formatta olacağını söyledik
+        //Model çekeceğimizi bildirdik,modelin nerden çekileceğini ve hangi formatta olacağını söyledik
         Gson gson=new GsonBuilder().setLenient().create();
 
         retrofit=new Retrofit.Builder()
@@ -41,8 +44,28 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
+        loadData();
 
+    }
 
+    //Veriyi çekmek için bir fonksiyon oluşturduk
+    private void loadData(){
+        CryptoAPI cryptoAPI=retrofit.create(CryptoAPI.class);
+        Call<List<CryptoModel>> call=cryptoAPI.getData();
+        //Enqueue:Senkron bir şekilde istek yapmayı ve gelecek cevaba göre işlem yapmayı sağlar
+        call.enqueue(new Callback<List<CryptoModel>>() {
+            @Override
+            public void onResponse(Call<List<CryptoModel>> call, Response<List<CryptoModel>> response) {
+                if(response.isSuccessful()){
+                   List<CryptoModel> responseList= response.body();
+                   cryptoModels=new ArrayList<>(responseList);
+                }
+            }
 
+            @Override
+            public void onFailure(Call<List<CryptoModel>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 }
