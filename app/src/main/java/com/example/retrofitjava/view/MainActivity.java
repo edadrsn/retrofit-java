@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.retrofitjava.R;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private String BASE_URL="https://raw.githubusercontent.com/";
     Retrofit retrofit;
     RecyclerView recyclerView;
+    RecyclerViewAdapter recyclerViewAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         //https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/refs/heads/master/crypto.json
-
-        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(cryptoModels);
-
 
 
         //Retrofit & JSON
@@ -66,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                    List<CryptoModel> responseList= response.body();
                    cryptoModels=new ArrayList<>(responseList);
+
+                   //RecyclerView
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    recyclerViewAdapter =new RecyclerViewAdapter(cryptoModels);
+                    recyclerView.setAdapter(recyclerViewAdapter);
+
                 }
             }
 
