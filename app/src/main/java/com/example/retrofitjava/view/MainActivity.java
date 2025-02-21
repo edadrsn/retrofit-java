@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.retrofitjava.R;
+import com.example.retrofitjava.adapter.RecyclerViewAdapter;
 import com.example.retrofitjava.model.CryptoModel;
 import com.example.retrofitjava.service.CryptoAPI;
 import com.google.gson.Gson;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         //https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/refs/heads/master/crypto.json
+
+        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(cryptoModels);
+
 
 
         //Retrofit & JSON
