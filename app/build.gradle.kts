@@ -32,7 +32,7 @@ android {
 }
 
 var retrofitVersion = "2.9.0"
-var rxJavaVersion = "2.2.19"
+var rxJavaVersion = "2.2.1"
 dependencies {
 
     implementation(libs.appcompat)
@@ -48,7 +48,7 @@ dependencies {
     implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion")
 
     implementation("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
-    implementation("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
+    implementation("io.reactivex.rxjava2:rxandroid:2.0.0")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
 
 

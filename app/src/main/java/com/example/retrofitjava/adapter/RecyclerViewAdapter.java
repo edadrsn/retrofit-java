@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
     ArrayList<CryptoModel> cryptoArrayList;
-    String[] colors={"#B7B1F2","#7D1C4A","#A9B5DF","#F7CFD8","#98D8EF","#A35C7A"};
+    String[] colors={"#C890A7","#E8F9FF","#EFF3EA","#FFE2E2","#C4D9FF","#7ED4AD"};
     public RecyclerViewAdapter(ArrayList<CryptoModel> cryptoArrayList){
         this.cryptoArrayList=cryptoArrayList;
     }
@@ -50,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
         public void bind(CryptoModel cryptoModel,String[] colors,Integer position){
-            itemView.setBackgroundColor(Color.parseColor(colors[position %8]));
+            itemView.setBackgroundColor(Color.parseColor(colors[position % 6]));
             textName=itemView.findViewById(R.id.text_name);
             textPrice=itemView.findViewById(R.id.text_price);
             textName.setText(cryptoModel.currency);

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
+    android:layout_margin="20dp"
+    android:background="@drawable/rounded_corners"
     android:orientation="vertical">
 
     <TextView
@@ -12,8 +13,9 @@
         android:layout_height="50dp"
         android:text="TextView"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:textSize="25sp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="2dp"/>
 
     <TextView
         android:id="@+id/text_price"
@@ -21,6 +23,7 @@
         android:layout_height="40dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:text="TextView"
-        android:layout_margin="10dp"/>
+        android:layout_margin="2dp"/>
 </LinearLayout>
